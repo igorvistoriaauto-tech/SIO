@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIO - Sistema de Orçamentos e Checklist</title>
+    <!-- Adicionado para PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <!-- Cole aqui o seu código HTML real do SIO mantendo todos os seus botões e funções originais -->
+    <h1>SIO - Sistema Inteligente de Orçamento</h1>
+    <p>Aplicativo em funcionamento com suporte a PWA e atualizações via GitHub.</p>
+
+    <!-- Script obrigatório para o Service Worker atualizar o app -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker registrado com sucesso!', reg.scope))
+                    .catch((err) => console.log('Falha ao registrar o Service Worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>
