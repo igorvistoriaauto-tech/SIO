@@ -166,8 +166,7 @@ const todayISO = () => {
 const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money = value => Number(value || 0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const dateBR = value => value ? String(value).split("-").reverse().join("/") : "—";
-const isAdmin = user => !!user && ADMIN_EMAILS.map(x=>x.toLowerCase()).includes((user.email||"").toLowerCase()) && !ADMIN_EMAILS.includes("admin.sio@sio.com");
-
+const isAdmin = user => !!user && ADMIN_EMAILS.map(x=>x.toLowerCase()).includes((user.email||"").toLowerCase());
 function subscriptionStatus(o) {
   if (o.vencimento && o.vencimento < todayISO()) return "vencido";
   if (o.ativo === false || o.statusPagamento === "suspenso") return "suspenso";
